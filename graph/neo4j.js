@@ -43,26 +43,26 @@ async function getEndorse5th(name) {
 async function test(){
     const name = await getNodes()    
 
-    console.log("Getting all endorsements from Jeanie Mountcastle")
+    console.time('Depth 1')
     const endorsements = await getEndorse(name)
-    console.log(endorsements.records.length)
+    console.timeEnd('Depth 1')
     
-    console.log("Getting all endorsements of all endorsements from Jeanie Mountcastle")    
+    console.time('Depth 2')    
     const endorsements2nd = await getEndorse2nd(name)
-    console.log(endorsements2nd.records.length)
-
-    console.log("Getting all endorsements in depth 3 from Jeanie Mountcastle")    
+    console.timeEnd('Depth 2')
+    
+    console.time('Depth 3')
     const endorsements3rd = await getEndorse3rd(name)
-    console.log(endorsements3rd.records.length)
-
-    // console.log("Getting all endorsements in depth 4 from Jeanie Mountcastle")    
-    // const endorsements4th = await getEndorse4th(name)
-    // console.log(endorsements4th.records.length)
-
-    // console.log("Getting all endorsements in depth 5 from Jeanie Mountcastle")    
-    // const endorsements5th = await getEndorse5th(name)
-    // console.log(endorsements5th.records.length)
-
+    console.timeEnd('Depth 3')
+    
+    console.time('Depth 4')    
+    const endorsements4th = await getEndorse4th(name)
+    console.timeEnd('Depth 4')
+    
+    console.time('Depth 5')
+    const endorsements5th = await getEndorse5th(name)
+    console.timeEnd('Depth 5')
+    
     session.close()
     driver.close()
 }

@@ -16,7 +16,7 @@ func getEndorse1st(db *sql.DB) (res []*person, err error) {
 		WHERE id IN (
 			SELECT id2 FROM relation
 			WHERE relation.id1 IN (
-				SELECT id FROM person LIMIT 1
+				SELECT id FROM person WHERE name = 'Jeanie Mountcastle'
 			)
 		);`)
 
@@ -37,7 +37,7 @@ func getEndorse2nd(db *sql.DB) (res []*person, err error) {
 				WHERE id IN (
 					SELECT id2 FROM relation
 					WHERE relation.id1 IN (
-						SELECT id FROM person LIMIT 1
+						SELECT id FROM person WHERE name = 'Jeanie Mountcastle'
 					)
 				)
 			)
@@ -64,7 +64,7 @@ func getEndorse3rd(db *sql.DB) (res []*person, err error) {
 						WHERE id IN (
 							SELECT id2 FROM relation
 							WHERE relation.id1 IN (
-								SELECT id FROM person LIMIT 1
+								SELECT id FROM person WHERE name = 'Jeanie Mountcastle'
 							)
 						)
 					)
@@ -97,7 +97,7 @@ func getEndorse4th(db *sql.DB) (res []*person, err error) {
 								WHERE id IN (
 									SELECT id2 FROM relation
 									WHERE relation.id1 IN (
-										SELECT id FROM person LIMIT 1
+										SELECT id FROM person WHERE name = 'Jeanie Mountcastle'
 									)
 								)
 							)
@@ -136,7 +136,7 @@ func getEndorse5th(db *sql.DB) (res []*person, err error) {
 										WHERE id IN (
 											SELECT id2 FROM relation
 											WHERE relation.id1 IN (
-												SELECT id FROM person LIMIT 1
+												SELECT id FROM person WHERE name = 'Jeanie Mountcastle'
 											)
 										)
 									)
